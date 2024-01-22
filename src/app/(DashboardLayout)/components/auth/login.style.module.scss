@@ -1,0 +1,32 @@
+.inputLogin input {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  transition: all 0.5s ease-in-out;
+}
+.inputLogin input:focus {
+  padding-bottom: 1.2rem;
+  padding-top: 1.2rem;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.spinner {
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  left: -1rem;
+  z-index: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.spinner span {
+  width: 150px !important;
+  height: 150px !important;
+}

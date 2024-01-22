@@ -1,0 +1,20 @@
+import React from 'react';
+import clsx from 'clsx';
+import { <%=componentPropsName%> } from './<%=componentFileName%>.types';
+import styles from './styles/<%=componentFileName%>.module.scss';
+
+function <%=functionComponentName%>(props: <%=componentPropsName%>) {
+  const { <%=!isPage ?"children,":''%> className, testingID } = props;
+
+  // const {  } = <%=componentUseViewModelHookName%>(props);
+
+  return (
+    <div className={clsx('<%=componentClassNamePropName%>', styles.<%=componentClassNamePropName%>, className)} data-testid={testingID}>
+      <%=!isPage ?'{children}' : ''%>
+      <%=functionComponentName%>
+    </div>
+  );
+}
+
+<% if(!isPage){%>export default React.memo(<%=functionComponentName%>);<%}%>
+<% if(isPage){%>export default <%=functionComponentName%>;<%}%>

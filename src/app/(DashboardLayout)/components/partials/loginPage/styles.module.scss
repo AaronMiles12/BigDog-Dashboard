@@ -1,0 +1,94 @@
+.background {
+  display: inline-block;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  position: fixed;
+}
+
+$particleSize: 20vmin;
+$animationDuration: 6s;
+$amount: 20;
+.background span {
+  width: $particleSize;
+  height: $particleSize;
+  border-radius: $particleSize;
+  backface-visibility: hidden;
+  position: absolute;
+  animation-name: move;
+  animation-duration: $animationDuration;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  $colors: (#dd075e, #b80d5e);
+  @for $i from 1 through $amount {
+    &:nth-child(#{$i}) {
+      color: nth($colors, random(length($colors)));
+      top: random(100) * 1%;
+      left: random(100) * 1%;
+      animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
+      animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+      transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+      $blurRadius: (random() + 0.5) * $particleSize * 0.2;
+      $x: if(random() > 0.5, -1, 1);
+      box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+    }
+  }
+}
+
+@keyframes move {
+  100% {
+    transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}
+
+.leftContainer {
+  display: none;
+}
+.rightContainer {
+  width: 85%;
+  padding: 20px;
+  height: fit-content;
+  border-radius: 5px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  background-image: url("/images/backgrounds/auth_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  max-width: 500px;
+}
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+// layout styles
+// For tablet
+@media screen and (min-width: 768px) {
+  // left container
+  .leftContainer {
+    width: 40%;
+    position: relative;
+    display: inline-block;
+  }
+  // right container
+  .rightContainer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    height: 100vh;
+    border-radius: 0;
+    opacity: 0.9;
+    max-width: 600px;
+  }
+}
+
+// For desktop
+@media screen and (min-width: 1024px) {
+  .leftContainer {
+    width: 80%;
+  }
+}

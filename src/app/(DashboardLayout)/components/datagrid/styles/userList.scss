@@ -1,0 +1,18 @@
+.top-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-right: 2rem;
+  z-index: 1;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  overflow-y: visible;
+}
+.search-select {
+  margin-left: 2rem;
+}

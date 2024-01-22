@@ -1,0 +1,7 @@
+<% if(!isPage){%>import React from 'react';<%}%>
+
+export interface <%=componentPropsName%>{
+  className?: string;
+  testingID?: string;<% if(!isPage){%>
+  children?: React.ReactNode;<%}%>
+}
